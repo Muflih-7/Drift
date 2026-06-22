@@ -6,10 +6,6 @@ DRIFT applies reliability engineering principles used in manufacturing and asset
 
 **USAII Global AI Hackathon 2026 — Undergraduate Track**
 
-Built by **Muflih Safeer**
-B.Eng Mechanical Engineering (Smart Manufacturing Engineering)
-University of Doha for Science and Technology (UDST), Qatar
-
 🔴 **Live Demo:** https://drift-sa21.onrender.com/
 
 ---
