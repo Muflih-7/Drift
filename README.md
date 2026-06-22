@@ -1,240 +1,260 @@
-\# Drift. — Personal Digital Twin for Student Drift Detection
+# DRIFT — Personal Digital Twin for Student Drift Detection
 
+> *Industrial systems rarely fail suddenly — they drift out of calibration first.*
 
+DRIFT applies reliability engineering principles used in manufacturing and asset management to a student, modelling academics, career readiness, wellbeing, and finances as four interdependent subsystems of a personal digital twin.
 
-> \*Industrial systems don't fail suddenly — they drift out of calibration first. DRIFT applies that same monitoring logic to a student.\*
+**USAII Global AI Hackathon 2026 — Undergraduate Track**
 
+Built by **Muflih Safeer**
+B.Eng Mechanical Engineering (Smart Manufacturing Engineering)
+University of Doha for Science and Technology (UDST), Qatar
 
+🔴 **Live Demo:** https://drift-sa21.onrender.com/
 
-\*\*USAII Global AI Hackathon 2026 — Undergraduate Track\*\*
+---
 
-Built by Muflih Safeer · B.Eng Mechanical Engineering, Smart Manufacturing Engineering · UDST, Qatar
+## Overview
 
+DRIFT is a decision-support system inspired by industrial reliability engineering.
 
+Instead of waiting for failure, DRIFT detects **drift** early — identifying emerging problems, tracing likely root causes, forecasting future outcomes, and quantifying the effect of interventions before action is taken.
 
-🔴 \*\*\[Live Demo →](https://your-render-url.onrender.com)\*\*
+The system treats a student the same way a reliability engineer treats a critical machine:
 
+* Monitor performance
+* Detect degradation
+* Identify failure modes
+* Forecast trajectories
+* Recommend corrective actions
 
+DRIFT does **not** diagnose people and does **not** make decisions on behalf of users.
 
-\---
+---
 
+## Core Idea
 
+Traditional productivity tools track isolated habits.
 
-\## What is DRIFT?
+DRIFT models a student as a **digital twin** consisting of four interacting subsystems:
 
+1. Academic Performance
+2. Career Readiness
+3. Wellbeing
+4. Financial Stability
 
+Changes in one subsystem influence the others through disclosed cross-dependency coefficients.
 
-DRIFT is a personal digital twin that monitors a student the way a reliability engineer monitors a machine — watching academics, career readiness, wellbeing, and finances as four interdependent subsystems, and detecting drift before it becomes failure.
+---
 
+## System Pipeline
 
-
-This is not a habit tracker. It is not an AI chatbot wrapper. It is a complete decision-support pipeline built on reliability engineering principles (FMEA, digital twin monitoring, fault-tree analysis) applied to a person for the first time.
-
-
-
-\---
-
-
-
-\## How it works
-
-
-
-```
-
+```text
 15 self-reported inputs
-
-&#x20;       ↓
-
-Weighted scoring engine (cross-subsystem penalty coefficients)
-
-&#x20;       ↓
-
-Root-cause trees (FMEA-style failure-mode matching)
-
-&#x20;       ↓
-
-Nearest-neighbour archetype matching (12 synthetic student patterns)
-
-&#x20;       ↓
-
-Forecast (3 trajectories + 90% confidence corridor)
-
-&#x20;       ↓
-
-Monte Carlo simulation (500 runs → probability distribution)
-
-&#x20;       ↓
-
-Counterfactual interventions (quantified, disclosed coefficients)
-
-&#x20;       ↓
-
-Work orders + Twin Letter (decision-support output)
-
+        ↓
+Weighted scoring engine
+        ↓
+Cross-subsystem penalties
+        ↓
+FMEA-style root-cause trees
+        ↓
+Nearest-neighbour archetype matching
+        ↓
+Forecast generation
+        ↓
+Monte Carlo simulation (500 runs)
+        ↓
+Counterfactual interventions
+        ↓
+Work orders + Twin Letter
 ```
 
+Every value shown in the interface traces back to a named constant in source code.
 
+There is no black box.
 
-Every number on screen traces back to a named constant in the source code. There is no black box.
+---
 
+## Features
 
+### 1. Findings
 
-\---
+* Root-cause breakdown
+* AI reasoning chain
+* Common-pattern alerts
+* Drift event timeline
 
+### 2. Forecast
 
+* Three future trajectories
+* Confidence corridors
+* Visible uncertainty degradation over time
 
-\## The 9 panels
+### 3. Interventions
 
+* Counterfactual scenario analysis
+* Quantified impact estimates
+* Interactive comparison
 
+### 4. Work Orders
 
-| # | Panel | What it shows |
+* Prioritised actions
+* Maintenance-style task queue
+* Completion tracking
 
-|---|-------|---------------|
+### 5. Archetype Matching
 
-| 01 | \*\*Findings\*\* | Root-cause breakdown, AI reasoning chain, common pattern alert, drift event timeline |
+* Nearest-neighbour classification
+* Similarity percentage
+* Radar chart visualisation
 
-| 02 | \*\*Forecast\*\* | 3 projected trajectories with 90% confidence bands, degrading over time |
+### 6. Dependency Map
 
-| 03 | \*\*Interventions\*\* | Live counterfactual scenario — check actions, watch quantified deltas animate |
+* Interactive subsystem relationships
+* Hover-based pathway highlighting
 
-| 04 | \*\*Work Orders\*\* | Auto-generated, prioritised, completable maintenance queue |
+### 7. History
 
-| 05 | \*\*Archetype\*\* | Nearest-neighbour match against 12 student archetypes, with radar chart |
+* Calibration history
+* Trend velocity tracking
+* Sparklines
 
-| 06 | \*\*Dependencies\*\* | Interactive SVG causal influence map — hover any node to highlight pathways |
+### 8. Simulation
 
-| 07 | \*\*History\*\* | Calibration history with sparklines and velocity tracking |
+* 500-run Monte Carlo analysis
+* Probability distributions
+* Deadline-based outcomes
 
-| 08 | \*\*Simulation\*\* | 500-run Monte Carlo — probability distributions to a user-set deadline |
+### 9. Twin Letter
 
-| 09 | \*\*Twin Letter\*\* | Plain-English decision-support letter for an advisor or mentor |
+* Plain-English summary
+* Advisor-ready output
+* Human-readable recommendations
 
+---
 
+## Why This Is Different
 
-\---
+### Zero External APIs
 
+No LLM calls. No backend. No server-side processing.
 
+### Fully Explainable
 
-\## Why this is not AI slop
+All scores, weights, penalties, and thresholds are disclosed constants.
 
+### No Black Box
 
+Any output can be traced back to the formula that generated it.
 
-\- \*\*Zero external API calls\*\* — no LLM, no server, no backend, fully client-side
+### Single-File Architecture
 
-\- \*\*Every coefficient is disclosed\*\* — weights, penalties, and thresholds are named constants in the source, not hidden parameters
+Built as one self-contained HTML application.
 
-\- \*\*No black box\*\* — any number on screen can be traced back to the exact formula that produced it
+### Reliability Engineering Approach
 
-\- \*\*Single self-contained HTML file\*\* — vanilla JavaScript, Chart.js, hand-written SVG
+Inspired by:
 
-\- \*\*Responsible AI by design\*\* — every score is labelled "modelled estimate, not a diagnosis"; confidence bands visibly degrade; contradictory inputs trigger explicit calibration warnings
+* Digital twins
+* Failure Mode and Effects Analysis (FMEA)
+* Root-cause analysis
+* Preventive maintenance
+* Fault-tree reasoning
 
+---
 
+## Responsible AI
 
-\---
+DRIFT is designed as a decision-support tool, not a diagnostic system.
 
+### Safeguards
 
+* Every score is labelled:
 
-\## Responsible AI
+> Modelled estimate — not a diagnosis.
 
+* Confidence intervals widen over time.
+* Forecast certainty intentionally degrades beyond 18 months.
+* Contradictory inputs trigger calibration warnings.
+* Users remain responsible for decisions.
+* High-priority recommendations should be reviewed with a real advisor.
 
+---
 
-Self-reported wellbeing data can understate real risk — someone in genuine distress may under-report stress, which could cause the system to understate risk and produce false reassurance.
+## Technical Details
 
+| Property   | Value                   |
+| ---------- | ----------------------- |
+| Stack      | HTML / CSS / JavaScript |
+| Framework  | None                    |
+| Charts     | Chart.js                |
+| Backend    | None                    |
+| APIs       | None                    |
+| Storage    | localStorage            |
+| Deployment | Static hosting          |
+| File Count | 1                       |
 
+---
 
-DRIFT mitigates this through:
+## Running Locally
 
-\- Explicit "modelled estimate, not a diagnosis" label on every score-bearing surface
+No installation is required.
 
-\- Confidence bands that visibly widen and degrade past 18 months
+### Option 1
 
-\- Calibration warnings when inputs are contradictory (e.g. high GPA + critically low sleep)
+Open:
 
-\- Human-in-the-loop by design — DRIFT ranks options, never decides for the user
+```text
+index.html
+```
 
-\- The Twin Letter explicitly recommends review with a real advisor before acting on high-priority items
+in any modern browser.
 
+### Option 2
 
-
-\---
-
-
-
-\## Technical details
-
-
-
-| Property | Value |
-
-|----------|-------|
-
-| Stack | Vanilla HTML/CSS/JavaScript |
-
-| Dependencies | Chart.js (CDN, forecast charts only) |
-
-| Backend | None |
-
-| External APIs | None |
-
-| Data storage | localStorage (client-side only) |
-
-| Deployment | Static file — works from any web host or local file system |
-
-| File count | 1 |
-
-
-
-\---
-
-
-
-\## Running locally
-
-
-
-No installation required. Download `index.html` and open it in any modern browser:
-
-
+Serve locally:
 
 ```bash
-
-\# Option 1 — just open the file
-
-open index.html
-
-
-
-\# Option 2 — serve locally if you prefer
-
 npx serve .
-
 ```
 
+---
 
+## Project Philosophy
 
-\---
+Industrial assets do not fail without warning.
 
+People often do.
 
+DRIFT explores whether reliability engineering principles traditionally applied to machines can be adapted to support human decision-making.
 
-\## Built by
+---
 
+## Built By
 
+**Muflih Safeer**
 
-\*\*Muflih Safeer\*\* — First-year B.Eng Mechanical Engineering, Smart Manufacturing Engineering
+First-Year B.Eng Mechanical Engineering
+Smart Manufacturing Engineering
 
 University of Doha for Science and Technology (UDST), Qatar
 
+* Solo build
+* One week
+* Zero budget
+* Zero APIs
 
+---
 
-Solo build. One week. Zero budget. Zero APIs.
+## Disclaimer
 
+DRIFT provides modelled estimates only.
 
+It is **not** a medical, psychological, financial, or academic diagnostic system.
 
-\---
+Users should consult qualified professionals before making significant decisions.
 
+---
 
-
-\*DRIFT v3 — local-only · no external calls · all scores are modelled estimates, not diagnoses · consult a human advisor before major decisions\*
-
+**DRIFT v3**
+Local-only • No external calls • Explainable by design
