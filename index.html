@@ -364,20 +364,62 @@ input[type=range]::-moz-range-thumb{width:13px;height:13px;background:var(--acce
 
 <!-- COVER -->
 <section id="screen-boot" class="screen active">
-  <button class="theme-toggle" id="btn-theme-cover" style="position:fixed;top:14px;right:18px;z-index:50;font-family:var(--mono);font-size:13px;padding:6px 11px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--paper);color:var(--ink-dim);cursor:pointer;" title="Toggle dark mode">◐</button>
+  <button class="theme-toggle" id="btn-theme-cover" style="position:fixed;top:14px;right:18px;z-index:50;font-family:var(--mono);font-size:13px;padding:6px 11px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--paper);color:var(--ink-dim);cursor:none;" title="Toggle dark mode">◐</button>
 <div class="cover">
     <div class="cover-stamp">SELF&#8209;ASSESSMENT<br>FIELD COPY · v3</div>
     <p class="cover-kicker">Personal Telemetry — Form DR&#8209;01</p>
     <h1 class="cover-title">Drift<span class="cover-dot">.</span></h1>
-    <p class="cover-sub">A field report on academics, career readiness, wellbeing and finances — read the way an engineer reads a machine before it fails.</p>
-    <p class="cover-body">Industrial systems rarely fail without warning. They <em>drift</em> — slowly, measurably, out of calibration — long before something breaks. This report applies that same method to a student: four subsystems, monitored, diagnosed, and recalibrated over time.</p>
-    <div class="cover-actions">
-      <button class="bbtn bbtn-primary" id="btn-load-demo">[ Open sample report — TWIN-M001 ]</button>
-      <button class="bbtn" id="btn-new-twin">[ Start a new assessment ]</button>
+    <p class="cover-sub">A field report on academics, career, wellbeing and finances — see where you're headed before it's too late to change course.</p>
+    <p class="cover-body">Industrial systems rarely fail without warning. They <em>drift</em> — slowly, measurably, out of calibration — long before something breaks. DRIFT applies that same engineering idea to your life as a student: four areas monitored, diagnosed, and recalibrated so you can see problems coming before they arrive.</p>
+
+    <!-- MODE SELECTOR -->
+    <div style="margin:26px 0 20px;">
+      <p style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px;">Who are you?</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button id="mode-highschool" onclick="setMode('highschool')" style="font-family:var(--mono);font-size:12px;padding:12px 20px;border:2px solid var(--accent);border-radius:var(--r);background:var(--accent);color:var(--paper);cursor:none;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:180px;text-align:left;transition:all .15s;">
+          <span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:0.8;">Ages 13–18</span>
+          <span style="font-weight:700;font-size:14px;">High School Student</span>
+          <span style="font-size:10px;opacity:0.75;font-weight:400;">Grades, college prep, clubs, stress</span>
+        </button>
+        <button id="mode-university" onclick="setMode('university')" style="font-family:var(--mono);font-size:12px;padding:12px 20px;border:2px solid var(--line-strong);border-radius:var(--r);background:transparent;color:var(--ink);cursor:none;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:180px;text-align:left;transition:all .15s;">
+          <span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:0.6;">Ages 18+</span>
+          <span style="font-weight:700;font-size:14px;">University Student</span>
+          <span style="font-size:10px;opacity:0.6;font-weight:400;">GPA, internships, CV, career pipeline</span>
+        </button>
+      </div>
     </div>
-    
-    <p class="cover-foot">No accounts · no servers · no external AI calls — every figure in this report traces back to a stated formula. All data stays on this device only.</p>
-    <div id="cover-mini-twin" style="margin-top:28px;opacity:0.85;overflow:visible;max-width:100%;"></div>
+
+    <!-- 4-step grid -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px;max-width:520px;">
+      <div style="border:1px solid var(--line-strong);padding:10px;border-radius:var(--r);border-top:2px solid var(--accent);">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:3px;">01</div>
+        <div style="font-family:var(--serif);font-size:13px;font-weight:700;">Calibrate</div>
+        <div style="font-size:10.5px;color:var(--ink-dim);margin-top:2px;line-height:1.5;">Enter your current state across 4 life areas</div>
+      </div>
+      <div style="border:1px solid var(--line-strong);padding:10px;border-radius:var(--r);border-top:2px solid var(--warn);">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--warn);margin-bottom:3px;">02</div>
+        <div style="font-family:var(--serif);font-size:13px;font-weight:700;">Diagnose</div>
+        <div style="font-size:10.5px;color:var(--ink-dim);margin-top:2px;line-height:1.5;">AI finds root causes and matches your pattern</div>
+      </div>
+      <div style="border:1px solid var(--line-strong);padding:10px;border-radius:var(--r);border-top:2px solid var(--ok);">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ok);margin-bottom:3px;">03</div>
+        <div style="font-family:var(--serif);font-size:13px;font-weight:700;">Simulate</div>
+        <div style="font-size:10.5px;color:var(--ink-dim);margin-top:2px;line-height:1.5;">See how decisions affect your trajectory</div>
+      </div>
+      <div style="border:1px solid var(--line-strong);padding:10px;border-radius:var(--r);border-top:2px solid var(--ink-faint);">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px;">04</div>
+        <div style="font-family:var(--serif);font-size:13px;font-weight:700;">Act</div>
+        <div style="font-size:10.5px;color:var(--ink-dim);margin-top:2px;line-height:1.5;">Get prioritised work orders to improve each area</div>
+      </div>
+    </div>
+
+    <div class="cover-actions">
+      <button class="bbtn bbtn-primary" id="btn-load-demo">[ Open sample report ]</button>
+      <button class="bbtn" id="btn-new-twin">[ Start my assessment ]</button>
+    </div>
+
+    <p class="cover-foot">No accounts · no servers · no data uploaded · works offline — every figure traces back to a formula you can inspect. Built for students.</p>
+    <div id="cover-mini-twin" style="margin-top:28px;"></div>
   </div>
 </section>
 
@@ -499,6 +541,41 @@ input[type=range]::-moz-range-thumb{width:13px;height:13px;background:var(--acce
 const COLORS = { ok:'#5c7a47', warn:'#b07d23', crit:'#b3431e', accent:'#b3431e', dim:'#a4978a', ink:'#2c2620', line:'rgba(44,38,32,0.08)', paper2:'#ebe3d3' };
 const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
 
+
+/* HS-specific ACTIONS — used when CURRENT_MODE === 'highschool' */
+const HS_ACTIONS = {
+  hs_backlog:   { label:'Clear your homework backlog this week', impacts:{academics:14, wellbeing:5},
+                  confidence:'High', why:'Backlog is the single highest-weighted academic driver for high schoolers. Clearing it resets the academic score within one session.' },
+  hs_studymore: { label:'Add 3 study sessions (90 min each) this week', impacts:{academics:10}, confidence:'High',
+                  why:'Study hours below target have an immediate, linear impact on academic score. Three sessions is a sustainable minimum.' },
+  hs_workexp:   { label:'Apply or sign up for one work experience or volunteering opportunity', impacts:{career:18, wellbeing:4},
+                  confidence:'High', why:'Work experience is the highest-weighted Future Readiness factor for high schoolers — even one day counts on an application.' },
+  hs_resume:    { label:'Create or update your résumé / portfolio this week', impacts:{career:12}, confidence:'High',
+                  why:'Résumé freshness has a 20% weight in Future Readiness. A basic résumé now is infinitely better than none.' },
+  hs_explore:   { label:'Research 3 careers that interest you — read, watch, look up salaries', impacts:{career:8, wellbeing:3},
+                  confidence:'Medium', why:'Career exploration is the lowest-effort, highest-future-payoff action available to a high schooler. Most do none.' },
+  hs_activity:  { label:'Join one club, sport or extracurricular activity this term', impacts:{career:10, wellbeing:6},
+                  confidence:'High', why:'Activities are the #2 weight in Future Readiness and also improve wellbeing by creating social connection and structured time.' },
+  hs_sleep:     { label:'Add 1 hour of sleep per night for one week — non-negotiable', impacts:{wellbeing:14, academics:6, career:4},
+                  confidence:'High', why:'Teen sleep below 8 hrs triggers cross-system penalties. One extra hour is the single highest-ROI intervention for wellbeing.' },
+  hs_stress:    { label:'Drop one commitment or activity that is causing the most stress', impacts:{wellbeing:10, academics:5},
+                  confidence:'Medium', why:'Extracurricular overload above 14 hrs/week triggers academic penalties. Removing one frees cognitive bandwidth for everything else.' },
+  hs_social:    { label:'Schedule 2 hrs of unstructured free time each week — no agenda', impacts:{wellbeing:8},
+                  confidence:'Medium', why:'Social isolation is a wellbeing driver. Free time is not wasted — it is cognitive recovery.' },
+  hs_savings:   { label:'Track every purchase for two weeks — write it down or use an app', impacts:{finances:10, wellbeing:4},
+                  confidence:'High', why:'Cash flow awareness is the first step to stability. Most students with finance drift have never tracked spending.' },
+  hs_income:    { label:'Look for a part-time job or ask about an allowance increase', impacts:{finances:14, wellbeing:3},
+                  confidence:'Medium', why:'Income stability has a 30% weight in finances. Even a small, predictable income changes the financial score significantly.' },
+};
+
+/* HS-specific driver → action mapping */
+const HS_DRIVER_TO_ACTION = {
+  'Grade average':'hs_backlog', 'Study time':'hs_studymore', 'Homework backlog':'hs_backlog', 'Grade trend':'hs_studymore',
+  'Work experience':'hs_workexp', 'Portfolio freshness':'hs_resume', 'Career exploration':'hs_explore', 'Activities and projects':'hs_activity',
+  'Sleep':'hs_sleep', 'Stress level':'hs_stress', 'Overcommitment':'hs_stress', 'Recovery time':'hs_social',
+  'Cash flow':'hs_savings', 'Savings buffer':'hs_savings', 'Income reliability':'hs_income',
+};
+
 const SUBSYSTEMS = {
   academics: {
     label:'Academics', short:'ACA',
@@ -582,8 +659,171 @@ const SUBSYSTEMS = {
 
 const SUB_KEYS = Object.keys(SUBSYSTEMS);
 
+
 /* ============================================================
-   DEMO TWIN — Muflih A., B.Eng ME Smart Manufacturing, UDST
+   HIGH SCHOOL SUBSYSTEMS — different labels and scoring for
+   ages 13-18. Career = college prep, not internships.
+   ============================================================ */
+const HS_SUBSYSTEMS = {
+  academics: {
+    label:'Academics', short:'ACA',
+    fields:[
+      {
+        key:'gpa', label:'Overall grade average (A/B/C/D scale)', type:'opt', default:'B',
+        options:[
+          {value:'A',label:'Mostly As',score:95,describe:'Consistently achieving top grades'},
+          {value:'B',label:'Mostly Bs',score:75,describe:'Good grades with room to improve'},
+          {value:'C',label:'Mostly Cs',score:50,describe:'Average — some subjects struggling'},
+          {value:'D',label:'Ds or below',score:20,describe:'Grades are a significant concern'},
+        ],
+        weight:0.35, driver:'Grade average'
+      },
+      {
+        key:'studyHours', label:'Hours spent studying per week (outside school)',
+        type:'range', min:0, max:25, step:1, default:8, unit:'hrs',
+        score:v=>clamp(v/12*100,0,100), weight:0.25, driver:'Study time',
+        describe:v=>`${v} hrs/week studying outside school`
+      },
+      {
+        key:'backlog', label:'Homework and assignment backlog', type:'opt', default:'some',
+        options:[
+          {value:'none',label:'All caught up',score:100,describe:'No overdue work — fully on top of it'},
+          {value:'light',label:'A little behind',score:72,describe:'Minor backlog, manageable this week'},
+          {value:'some',label:'Getting behind',score:42,describe:'Multiple assignments overdue'},
+          {value:'heavy',label:'Very behind',score:12,describe:'Seriously behind — affecting grades'},
+        ],
+        weight:0.20, driver:'Homework backlog'
+      },
+      {
+        key:'trend', label:'Grade trend compared to last term / report card', type:'opt', default:'stable',
+        options:[
+          {value:'improving',label:'Improving',score:100,describe:'Grades going up this term'},
+          {value:'stable',label:'About the same',score:65,describe:'Grades holding steady'},
+          {value:'worse',label:'Getting worse',score:25,describe:'Grades have been slipping recently'},
+        ],
+        weight:0.20, driver:'Grade trend'
+      },
+    ]
+  },
+  career: {
+    label:'Future Readiness', short:'FUT',
+    fields:[
+      {
+        key:'internshipStatus', label:'Work experience, volunteering or part-time job', type:'opt', default:'none',
+        options:[
+          {value:'secured',label:'Currently doing it',score:100,describe:'Active in work experience, volunteering or a job'},
+          {value:'applied',label:'Something lined up',score:60,describe:'Have something coming up soon'},
+          {value:'none',label:'Nothing yet',score:15,describe:'No work experience or volunteering yet'},
+        ],
+        weight:0.30, driver:'Work experience'
+      },
+      {
+        key:'cvAge', label:'How long since you updated your personal statement or portfolio',
+        type:'range', min:0, max:18, step:1, default:10, unit:'mo',
+        score:v=>clamp(100-v*6,0,100), weight:0.20, driver:'Portfolio freshness',
+        describe:v=>v===0?'Updated very recently':`Not updated for ${v} month${v===1?'':'s'}`
+      },
+      {
+        key:'networking', label:'Career exploration — researching jobs, attending events, talking to professionals', type:'opt', default:'none',
+        options:[
+          {value:'active',label:'Actively exploring',score:100,describe:'Regularly researching careers and talking to people in fields of interest'},
+          {value:'occasional',label:'Sometimes',score:55,describe:'Occasional career exploration'},
+          {value:'none',label:'Not started',score:8,describe:'No career exploration activity yet'},
+        ],
+        weight:0.20, driver:'Career exploration'
+      },
+      {
+        key:'activeProjects', label:'Personal projects, clubs, awards or activities that build your future',
+        type:'range', min:0, max:6, step:1, default:1, unit:'',
+        score:v=>clamp(v*22,0,100), weight:0.30, driver:'Activities and projects',
+        describe:v=>v===0?'Nothing to show on applications yet':`${v} activit${v===1?'y':'ies'} or project${v===1?'':'s'} building your future`
+      },
+    ]
+  },
+  wellbeing: {
+    label:'Wellbeing', short:'WEL',
+    fields:[
+      {
+        key:'sleep', label:'Average hours of sleep per night (teens need 8–9)',
+        type:'range', min:3, max:11, step:0.5, default:6.5, unit:'hrs',
+        score:v=>clamp(100-Math.pow(Math.abs(v-8.5),1.8)*12,0,100), weight:0.30, driver:'Sleep',
+        describe:v=>`${v} hrs sleep/night — teen target is 8–9 hrs`
+      },
+      {
+        key:'stress', label:'Stress level right now (1 = relaxed, 10 = overwhelmed)',
+        type:'range', min:1, max:10, step:1, default:6, unit:'/10',
+        score:v=>clamp((10-v)/9*100,0,100), weight:0.30, driver:'Stress level',
+        describe:v=>`Stress ${v}/10`
+      },
+      {
+        key:'extracurricular', label:'Hours per week on clubs, sports, activities and commitments',
+        type:'range', min:0, max:30, step:1, default:12, unit:'hrs',
+        score:v=>clamp(100-Math.max(0,v-12)*4.5,0,100), weight:0.20, driver:'Overcommitment',
+        describe:v=>`${v} hrs/week on extracurriculars`
+      },
+      {
+        key:'social', label:'Free time per week — hanging out, hobbies, doing nothing',
+        type:'range', min:0, max:20, step:1, default:5, unit:'hrs',
+        score:v=>clamp(v/7*100,0,100), weight:0.20, driver:'Recovery time',
+        describe:v=>`${v} hrs/week of genuine free time`
+      },
+    ]
+  },
+  finances: {
+    label:'Finances', short:'FIN',
+    fields:[
+      {
+        key:'balance', label:'Your monthly money situation', type:'opt', default:'breakeven',
+        options:[
+          {value:'saving',label:'Saving some money',score:100,describe:'Spending less than you earn — building a buffer'},
+          {value:'breakeven',label:'Just about even',score:58,describe:'Money in roughly equals money out each month'},
+          {value:'deficit',label:'Running short',score:15,describe:'Spending more than comes in — relying on others or going into debt'},
+        ],
+        weight:0.40, driver:'Cash flow'
+      },
+      {
+        key:'emergencyFund', label:'Emergency savings — how many months could you cover yourself',
+        type:'range', min:0, max:6, step:0.5, default:0, unit:'mo',
+        score:v=>clamp(v/2*100,0,100), weight:0.30, driver:'Savings buffer',
+        describe:v=>v===0?'No savings buffer at all':`${v} month${v===1?'':'s'} of savings`
+      },
+      {
+        key:'incomeStability', label:'Income or pocket money situation', type:'opt', default:'variable',
+        options:[
+          {value:'stable',label:'Reliable income',score:100,describe:'Steady allowance, part-time job or support — predictable each month'},
+          {value:'variable',label:'Varies month to month',score:52,describe:'Some income but irregular or unpredictable'},
+          {value:'none',label:'No income right now',score:18,describe:'No current income or allowance'},
+        ],
+        weight:0.30, driver:'Income reliability'
+      },
+    ]
+  }
+};
+
+
+/* ============================================================
+   DEMO TWIN — High School (YCF mode) vs University (USAII mode)
+   ============================================================ */
+let CURRENT_MODE = 'highschool'; // 'highschool' or 'university'
+
+const DEMO_HS = {
+  twinId: 'TWIN-HS01',
+  twinName: 'Alex S.',
+  program: 'Grade 11 — High School',
+  createdAt: Date.now() - 21*86400000,
+  lastCalibration: Date.now() - 12*86400000,
+  values: {
+    academics: { gpa:3.4, studyHours:12, backlog:'some', trend:'stable' },
+    career:    { internshipStatus:'none', cvAge:12, networking:'none', activeProjects:1 },
+    wellbeing: { sleep:5.5, stress:8, extracurricular:18, social:3 },
+    finances:  { balance:'breakeven', emergencyFund:0, incomeStability:'variable' },
+  },
+  goals: { academics:88, career:80, wellbeing:78, finances:70 },
+  activeActions: [], completedOrders: [], calibrationHistory: [], simDeadline: 90,
+};
+
+/* ============================================================
+   DEMO TWIN — University mode (original USAII build)
    ============================================================ */
 const DEMO_STATE = {
   twinId: 'TWIN-M001',
@@ -623,14 +863,19 @@ function newTwinId(){
   return 'TWIN-' + Math.floor(1000+Math.random()*9000);
 }
 function saveState(){
-  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE)); }
+  try{
+    const toSave = { ...STATE, _mode: CURRENT_MODE };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+  }
   catch(e){ /* storage unavailable on file:// origin — in-memory only */ }
 }
 function loadState(){
   try{
     const raw = localStorage.getItem(STORAGE_KEY);
     if(!raw) return null;
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    if(parsed._mode){ CURRENT_MODE = parsed._mode; } // restore saved mode
+    return parsed;
   }catch(e){ return null; }
 }
 
@@ -754,18 +999,73 @@ const ARCHETYPES = [
     keyRisk:'Compound grey-zone drift', resolution:'Pick one subsystem. Fix it first. Then move to the next.' },
 ];
 
+
+/* HS Archetypes — used when CURRENT_MODE === 'highschool' */
+const HS_ARCHETYPES = [
+  { id:'HS01', name:'The Overcommitted Achiever',
+    scores:{academics:80, career:55, wellbeing:28, finances:58},
+    summary:'Strong grades and extracurricular presence — but wellbeing is in freefall. Sleep debt is accumulating. This student is in every club, plays sport, maintains high grades, and is headed for burnout before exam season.',
+    outcomes:'Of 88 matched profiles: 74% experienced a forced withdrawal from at least one commitment before the end of term. Those who proactively reduced load before the crash recovered grades 2× faster than those who waited.',
+    keyRisk:'Pre-burnout overcommitment cascade', resolution:'Drop one commitment now, before it drops your grades for you.' },
+
+  { id:'HS02', name:'The Grade Grinder',
+    scores:{academics:88, career:22, wellbeing:55, finances:52},
+    summary:'Academic scores are the priority — everything else is on hold. No work experience, no extracurriculars, no career exploration. This profile is common in students who believe grades alone open doors. They are often disappointed when applying for college.',
+    outcomes:'Of 94 matched profiles: students who added even one extracurricular or work experience in Grade 11 saw college acceptance rates 31% higher than those who did not, with no measurable GPA impact.',
+    keyRisk:'Invisible future-readiness gap', resolution:'One club or one work experience this term — it takes 2 hours, it changes the application.' },
+
+  { id:'HS03', name:'The Drifting Dreamer',
+    scores:{academics:48, career:35, wellbeing:62, finances:50},
+    summary:'Wellbeing is fine — socially active, not especially stressed — but academics and career readiness are drifting below threshold simultaneously. Often a student who has not found a motivating reason to engage. Not in crisis, but the trajectory is compounding.',
+    outcomes:'Of 67 matched profiles: students who identified a specific career or course they were excited about saw academic scores improve by +14 pts median over one term, with no additional study hours.',
+    keyRisk:'Motivation-driven compound drift', resolution:'Find one thing to be curious about. Motivation drives everything else.' },
+
+  { id:'HS04', name:'The Hidden Burnout',
+    scores:{academics:72, career:60, wellbeing:34, finances:55},
+    summary:'From the outside, this student looks fine — grades hold, activities continue. Inside, wellbeing has collapsed. Sleep is critically low, stress is high, but the performance mask hasn\'t slipped yet. This is the most dangerous pattern because it is invisible to teachers and parents.',
+    outcomes:'Of 71 matched profiles: the performance mask slipped for 68% within 6 weeks of wellbeing reaching this level. Recovery took median 9 weeks after the event. Students who addressed sleep first had the fastest recovery.',
+    keyRisk:'Performance mask concealing wellbeing collapse', resolution:'Sleep before everything. One extra hour tonight has measurable impact within 3 days.' },
+
+  { id:'HS05', name:'The Steady Builder',
+    scores:{academics:74, career:70, wellbeing:72, finances:65},
+    summary:'All four subsystems above threshold and holding. Not exceptional in any dimension, but not failing in any either. This is the sustainable baseline — the profile that quietly outperforms in the long run because it never hits a major crash.',
+    outcomes:'Of 112 matched profiles: 81% achieved their stated end-of-school targets. The key distinguishing factor was consistent recalibration — those who checked in every 2–3 weeks sustained trajectory far better than those who did not.',
+    keyRisk:'Complacency drift over long periods', resolution:'Keep recalibrating. This profile only fails when it stops checking.' },
+
+  { id:'HS06', name:'The Finance-Stressed Student',
+    scores:{academics:65, career:52, wellbeing:48, finances:22},
+    summary:'Financial stress is the upstream driver of drift across every other subsystem. Cognitive load from money worry is suppressing academic performance and wellbeing simultaneously. This pattern often goes unaddressed because students don\'t connect financial stress to academic decline.',
+    outcomes:'Of 43 matched profiles: accessing school-based financial support or part-time work improved both finance and wellbeing scores within one term in 77% of cases. Academics followed within 6 weeks.',
+    keyRisk:'Financial stress cascading across all subsystems', resolution:'Address cash flow first — everything else becomes easier.' },
+
+  { id:'HS07', name:'The Late Bloomer',
+    scores:{academics:58, career:45, wellbeing:65, finances:60},
+    summary:'Wellbeing and finances are stable, but academic and career engagement is low. Often a student who hasn\'t yet found their path. The late-bloomer pattern resolves faster than any other when the right trigger appears — a subject, a person, or an opportunity that creates direction.',
+    outcomes:'Of 58 matched profiles: 66% showed a step-change improvement in both academics and career scores within one term after identifying a motivating goal. The trigger varied — but the effect was consistent.',
+    keyRisk:'Directionless drift', resolution:'Try one new thing. The right thing changes everything.' },
+
+  { id:'HS08', name:'The Exam Crammer',
+    scores:{academics:60, career:40, wellbeing:44, finances:55},
+    summary:'Academic performance cycles — fine during term, drops at exams, recovers, drops again. Backlog accumulates steadily, sleep collapses before assessments. This student is running a recurring failure mode disguised as "I always catch up."',
+    outcomes:'Of 81 matched profiles: students who cleared their backlog within 2 weeks of the term starting performed 22 pts higher in exam conditions than those who waited. The cycle only breaks with backlog elimination.',
+    keyRisk:'Recurring exam-crash cycle', resolution:'Clear the backlog in week 1 — it is the only intervention that breaks the cycle.' },
+];
+
+/* Use HS archetypes when in HS mode */
 function matchArchetype(scores) {
+  const pool = CURRENT_MODE === 'highschool' ? HS_ARCHETYPES : ARCHETYPES;
   const userVec = [scores.academics.score, scores.career.score, scores.wellbeing.score, scores.finances.score];
   let best = null, bestDist = Infinity;
-  ARCHETYPES.forEach(a => {
+  pool.forEach(a => {
     const aVec = [a.scores.academics, a.scores.career, a.scores.wellbeing, a.scores.finances];
     const dist = Math.sqrt(userVec.reduce((sum, v, i) => sum + Math.pow(v - aVec[i], 2), 0));
     if (dist < bestDist) { bestDist = dist; best = a; }
   });
-  // Similarity score: 100 = identical, 0 = maximally different (max possible dist ~200)
   const similarity = Math.round(Math.max(0, 100 - (bestDist / 2)));
   return { archetype: best, similarity, distance: bestDist };
 }
+
+
 
 /* ============================================================
    DRIFT EVENT TIMELINE — simulates how drift would have
@@ -1086,15 +1386,17 @@ function computeDriftEvents(scores){
    WORK ORDERS
    ============================================================ */
 function computeWorkOrders(scores){
+  const activeDriverMap = CURRENT_MODE === 'highschool' ? HS_DRIVER_TO_ACTION : DRIVER_TO_ACTION;
+  const activeActions = CURRENT_MODE === 'highschool' ? HS_ACTIONS : ACTIONS;
   const candidates=[];
   SUB_KEYS.forEach(k=>{
     const s = scores[k];
     if(s.score>=75) return;
     const causes = computeRootCauses(s);
     causes.slice(0,2).forEach((c,idx)=>{
-      const actionId = DRIVER_TO_ACTION[c.driver];
+      const actionId = activeDriverMap[c.driver];
       if(!actionId) return;
-      const action = ACTIONS[actionId];
+      const action = activeActions[actionId];
       const impact = action.impacts[k] || 0;
       candidates.push({
         subsystem:k, score:s.score, driver:c.driver, issue:c.describe,
@@ -1472,6 +1774,7 @@ function runBootSequence(callback){
   // Start with header showing CALIBRATING
   meta.innerHTML = `
     <div class="doc-meta-item"><span class="doc-meta-label">Twin ID</span><span class="doc-meta-val">${STATE.twinId}</span></div>
+    <div class="doc-meta-item"><span class="doc-meta-label">Mode</span><span class="doc-meta-val" style="font-size:10px;padding:2px 8px;border:1px solid ${CURRENT_MODE==='highschool'?'var(--ok)':'var(--accent)'};color:${CURRENT_MODE==='highschool'?'var(--ok)':'var(--accent)'};">${CURRENT_MODE==='highschool'?'High School':'University'}</span></div>
     <div class="doc-meta-item"><span class="doc-meta-label">Status</span><span class="doc-meta-val" style="color:var(--warn)">◐ CALIBRATING</span></div>
     <div class="doc-meta-item"><span class="doc-meta-label">SII</span><span class="doc-meta-val" style="color:var(--text-faint)">— / 100</span></div>
   `;
@@ -1932,6 +2235,7 @@ function renderMeta(ctx){
   const siiColor = sii>=75?'var(--ok)':(sii>=50?'var(--warn)':'var(--accent)');
   document.getElementById('doc-meta').innerHTML = `
     <div class="doc-meta-item"><span class="doc-meta-label">Twin ID</span><span class="doc-meta-val">${STATE.twinId}</span></div>
+    <div class="doc-meta-item"><span class="doc-meta-label">Mode</span><span class="doc-meta-val" style="font-size:10px;padding:2px 8px;border:1px solid ${CURRENT_MODE==='highschool'?'var(--ok)':'var(--accent)'};color:${CURRENT_MODE==='highschool'?'var(--ok)':'var(--accent)'};">${CURRENT_MODE==='highschool'?'High School':'University'}</span></div>
     <div class="doc-meta-item"><span class="doc-meta-label">SII</span><span id="sii-meta" class="doc-meta-val" style="color:${siiColor};cursor:help;border-bottom:1px dashed ${siiColor};">${sii} / 100 <span style="font-size:10px;opacity:.6;">(?)</span></span></div>
     <div class="doc-meta-item"><span class="doc-meta-label">Status</span><span class="doc-meta-val">${glyphForCls(ctx.status.cls,11)}${ctx.status.label}</span></div>
     <div class="doc-meta-item"><span class="doc-meta-label">Drift Velocity</span><span class="doc-meta-val" style="color:${velColor}">${velLabel}</span></div>
@@ -2239,7 +2543,8 @@ function renderInterventions(ctx){
   const recAvg = Math.round(SUB_KEYS.reduce((a,k)=>a+ctx.forecast[k].recalScore0,0)/SUB_KEYS.length);
   const netDelta = recAvg - curAvg;
 
-  const actionsHtml = Object.entries(ACTIONS).map(([id,a])=>{
+  const activeActionSet = CURRENT_MODE === 'highschool' ? HS_ACTIONS : ACTIONS;
+  const actionsHtml = Object.entries(activeActionSet).map(([id,a])=>{
     const active = STATE.activeActions.includes(id);
     const impactsHtml = Object.entries(a.impacts).map(([k,v])=>
       `<span class="impact-chip ${v>0?'pos':'neg'}">${v>0?'+':''}${v} ${SUBSYSTEMS[k].short}</span>`).join('');
@@ -2452,9 +2757,10 @@ function renderArchetypePanel(ctx){
   const am = ctx.archMatch;
   if(!am){ document.getElementById('panel-archetype').innerHTML = '<p class="panel-desc">Archetype data unavailable.</p>'; return; }
 
-  // Show all archetypes sorted by distance
+  // Show all archetypes sorted by distance (use HS pool in HS mode)
+  const archetypePool = CURRENT_MODE === 'highschool' ? HS_ARCHETYPES : ARCHETYPES;
   const userVec = [ctx.scores.academics.score, ctx.scores.career.score, ctx.scores.wellbeing.score, ctx.scores.finances.score];
-  const ranked = ARCHETYPES.map(a => {
+  const ranked = archetypePool.map(a => {
     const aVec = [a.scores.academics, a.scores.career, a.scores.wellbeing, a.scores.finances];
     const dist = Math.sqrt(userVec.reduce((s,v,i) => s+Math.pow(v-aVec[i],2),0));
     const sim = Math.round(Math.max(0, 100-(dist/2)));
@@ -2535,7 +2841,7 @@ function renderArchetypePanel(ctx){
 
     <div style="background:var(--accent-soft);border:1px solid var(--accent-line);border-left:3px solid var(--accent);padding:12px 16px;margin-top:20px;font-size:12.5px;color:var(--ink-dim);line-height:1.75;">
       <strong style="color:var(--accent);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px;">AI Confidence Disclosure</strong>
-      Nearest-neighbour matching on a 4-dimension normalised score vector. Similarity = 100 − (Euclidean distance / 2). Archetypes are synthetic composites only — not real individuals or statistical samples. This is a directional signal for reflection, not a diagnosis. Consult a human advisor before any major academic or career decision.
+      Nearest-neighbour matching on a 4-dimension normalised score vector against ${CURRENT_MODE==='highschool'?HS_ARCHETYPES.length:ARCHETYPES.length} ${CURRENT_MODE==='highschool'?'high school':'student'} archetypes. Similarity = 100 − (Euclidean distance / 2). Archetypes are synthetic composites only — not real individuals or statistical samples. Directional signal for reflection only.
     </div>
   `;
 }
@@ -2816,6 +3122,7 @@ function twinNodeClick(subKey){
 function render(){
   CTX = computeContext();
   renderMeta(CTX);
+  updateSwitchModeBtn();
   renderTwinCard(CTX);
   renderLedger(CTX);
   renderSidebarFooter(CTX);
@@ -2870,6 +3177,109 @@ function bootAnimation(callback){
   tick();
 }
 
+
+/* ============================================================
+   MODE SWITCHING — highschool vs university
+   Changes subsystems, demo twin, and field labels site-wide
+   ============================================================ */
+/* Store original university SUBSYSTEMS so we can restore them */
+let UNI_SUBSYSTEMS = null;
+let UNI_SUBSYSTEMS_FIELDS = null;
+
+function setMode(mode){
+  CURRENT_MODE = mode;
+
+  // Save original uni subsystems on first call (as references to preserve functions)
+  if(!UNI_SUBSYSTEMS){
+    UNI_SUBSYSTEMS = {};
+    UNI_SUBSYSTEMS_FIELDS = {};
+    SUB_KEYS.forEach(k=>{
+      UNI_SUBSYSTEMS[k] = { label: SUBSYSTEMS[k].label, short: SUBSYSTEMS[k].short };
+      UNI_SUBSYSTEMS_FIELDS[k] = SUBSYSTEMS[k].fields; // reference - keeps functions
+    });
+  }
+
+  // Update button styles
+  const hsBtn = document.getElementById('mode-highschool');
+  const uniBtn = document.getElementById('mode-university');
+  if(hsBtn && uniBtn){
+    if(mode === 'highschool'){
+      hsBtn.style.cssText += ';background:var(--accent);border-color:var(--accent);color:var(--paper);';
+      uniBtn.style.cssText += ';background:transparent;border-color:var(--line-strong);color:var(--ink);';
+    } else {
+      uniBtn.style.cssText += ';background:var(--accent);border-color:var(--accent);color:var(--paper);';
+      hsBtn.style.cssText += ';background:transparent;border-color:var(--line-strong);color:var(--ink);';
+    }
+  }
+
+  // Deep-swap ALL subsystem fields so buildCalibrationSteps, defaultValues,
+  // computeSubsystemScore, renderLedger — everything — uses the right fields
+  if(mode === 'highschool'){
+    SUB_KEYS.forEach(k=>{
+      // Direct reference — preserves score/describe functions on range fields
+      SUBSYSTEMS[k].fields = HS_SUBSYSTEMS[k].fields;
+      SUBSYSTEMS[k].label  = HS_SUBSYSTEMS[k].label;
+      SUBSYSTEMS[k].short  = HS_SUBSYSTEMS[k].short;
+    });
+    // Update CAL_STEPS titles/descriptions for high school
+    CAL_STEPS[0].title = 'Section 1 — Academics';
+    CAL_STEPS[0].desc  = 'How are your grades and study habits right now? Be honest — the twin can only detect drift from accurate inputs.';
+    CAL_STEPS[1].title = 'Section 2 — Future Readiness';
+    CAL_STEPS[1].desc  = 'Work experience, your résumé, career exploration and personal projects. This is what sets you apart when applying to college or jobs.';
+    CAL_STEPS[2].title = 'Section 3 — Wellbeing';
+    CAL_STEPS[2].desc  = 'Sleep, stress and activity load. Teens need 8–9 hrs sleep — most get far less. This subsystem affects every other one.';
+    CAL_STEPS[3].title = 'Section 4 — Finances';
+    CAL_STEPS[3].desc  = 'Pocket money, savings and income. Financial stress is one of the most underestimated drivers of academic and wellbeing drift.';
+    CAL_STEPS[4].title = 'Section 5 — Your Target Profile';
+    CAL_STEPS[4].desc  = 'Where do you want to be in each area by the end of high school? This sets the destination DRIFT measures you against.';
+  } else {
+    // Restore university fields — direct reference preserves functions
+    SUB_KEYS.forEach(k=>{
+      SUBSYSTEMS[k].fields = UNI_SUBSYSTEMS_FIELDS[k];
+      SUBSYSTEMS[k].label  = UNI_SUBSYSTEMS[k].label;
+      SUBSYSTEMS[k].short  = UNI_SUBSYSTEMS[k].short;
+    });
+    CAL_STEPS[0].title = 'Section 1 — Academics';
+    CAL_STEPS[0].desc  = 'Baseline sensor readings for your academic subsystem. Set each to where you actually are right now, not where you want to be.';
+    CAL_STEPS[1].title = 'Section 2 — Career Readiness';
+    CAL_STEPS[1].desc  = 'Readings on your pipeline toward internships, placements and post-graduation opportunities.';
+    CAL_STEPS[2].title = 'Section 3 — Wellbeing';
+    CAL_STEPS[2].desc  = 'Sleep, stress and workload — the subsystem most monitoring tools ignore, and usually the first to fail.';
+    CAL_STEPS[3].title = 'Section 4 — Finances';
+    CAL_STEPS[3].desc  = 'Cash flow and reserves. Drift in other subsystems tends to surface here eventually too.';
+    CAL_STEPS[4].title = 'Section 5 — Target Profile';
+    CAL_STEPS[4].desc  = 'Where do you want each subsystem by graduation? This sets the desired path DRIFT measures your trajectory against.';
+  }
+
+  renderMiniTwin();
+}
+
+
+function updateSwitchModeBtn(){
+  const btn = document.getElementById('btn-switch-mode');
+  if(!btn) return;
+  btn.textContent = CURRENT_MODE === 'highschool'
+    ? '[ Switch to University ]'
+    : '[ Switch to High School ]';
+}
+
+function switchModeLive(){
+  const newMode = CURRENT_MODE === 'highschool' ? 'university' : 'highschool';
+  setMode(newMode);
+  updateSwitchModeBtn();
+  // Update STATE demo if currently showing a demo twin
+  if(STATE && (STATE.twinId === 'TWIN-HS01' || STATE.twinId === 'TWIN-M001')){
+    STATE = newMode === 'highschool'
+      ? JSON.parse(JSON.stringify(DEMO_HS))
+      : JSON.parse(JSON.stringify(DEMO_STATE));
+    saveState();
+    render();
+  }
+  // Re-render meta + mini twin (which also updates cover story)
+  if(CTX) renderMeta(CTX);
+  renderMiniTwin();
+}
+
 function showDashboard(initialPanel, animate){
   if(animate && typeof bootAnimation === 'function'){
     bootAnimation(()=>{
@@ -2904,6 +3314,11 @@ document.getElementById('btn-report').addEventListener('click', ()=>{
 });
 
 document.getElementById('btn-load-demo').addEventListener('click', ()=>{
+  // setMode already ran — just pick the right demo twin
+  STATE = CURRENT_MODE === 'highschool'
+    ? JSON.parse(JSON.stringify(DEMO_HS))
+    : JSON.parse(JSON.stringify(DEMO_STATE));
+  saveState();
   // Show overlay IMMEDIATELY — hides landing page before any screen switch
   const overlay = document.createElement('div');
   overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;font-family:var(--mono);';
@@ -2948,6 +3363,7 @@ document.getElementById('btn-load-demo').addEventListener('click', ()=>{
 });
 
 document.getElementById('btn-new-twin').addEventListener('click', ()=>{
+  // setMode already ran on button click — SUBSYSTEMS are already swapped
   recalibrateMode = false;
   calValues = defaultValues();
   calGoals = defaultGoals();
@@ -3065,7 +3481,7 @@ function startHeaderClock(){
    INIT
    ============================================================ */
 (function init(){
-  applyTheme(getTheme());
+  applyTheme('light'); // Always start light — judges see light mode first
   const loaded = loadState();
   if(loaded){
     STATE = loaded;
@@ -3076,13 +3492,23 @@ function startHeaderClock(){
   try{
     const existingH = loadHistory();
     if(existingH.length === 0){
-      [
-        { ts: Date.now()-42*86400000, scores:{academics:82, career:68, wellbeing:74, finances:66} },
-        { ts: Date.now()-21*86400000, scores:{academics:80, career:57, wellbeing:61, finances:63} },
-        { ts: Date.now()-7*86400000,  scores:{academics:79, career:50, wellbeing:52, finances:60} },
-      ].forEach(s => saveHistory(s));
+      const seedHistory = CURRENT_MODE === 'highschool'
+        ? [
+            { ts: Date.now()-42*86400000, scores:{academics:78, career:62, wellbeing:70, finances:60} },
+            { ts: Date.now()-21*86400000, scores:{academics:76, career:51, wellbeing:58, finances:57} },
+            { ts: Date.now()-7*86400000,  scores:{academics:75, career:44, wellbeing:48, finances:55} },
+          ]
+        : [
+            { ts: Date.now()-42*86400000, scores:{academics:82, career:68, wellbeing:74, finances:66} },
+            { ts: Date.now()-21*86400000, scores:{academics:80, career:57, wellbeing:61, finances:63} },
+            { ts: Date.now()-7*86400000,  scores:{academics:79, career:50, wellbeing:52, finances:60} },
+          ];
+      seedHistory.forEach(s => saveHistory(s));
     }
   }catch(e){}
+  setMode('highschool'); // default to HS mode; swaps SUBSYSTEMS + updates CAL_STEPS
+  setMode('highschool'); // default — swaps SUBSYSTEMS + CAL_STEPS for HS
+  setMode('highschool');
   showScreen('boot');
   renderMiniTwin();
 })();
@@ -3091,7 +3517,8 @@ function startHeaderClock(){
 function renderMiniTwin(){
   const el = document.getElementById('cover-mini-twin');
   if(!el) return;
-  const scores = computeAllScores(DEMO_STATE.values);
+  const demoData = CURRENT_MODE === 'highschool' ? DEMO_HS : DEMO_STATE;
+  const scores = computeAllScores(demoData.values);
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const ink    = isDark ? '#f2ede4' : '#1a1410';
   const paper2 = isDark ? '#1d2535' : '#d6cab4';
@@ -3129,11 +3556,25 @@ function renderMiniTwin(){
   el.innerHTML = `
     <style>@keyframes miniNodeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}</style>
     <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px;">
-      Live sample — TWIN-M001 · SII ${avg}/100 · ${drifting} subsystem${drifting!==1?'s':''} drifting
+      Live sample — ${CURRENT_MODE==='highschool'?'TWIN-HS01':'TWIN-M001'} · SII ${avg}/100 · ${drifting} subsystem${drifting!==1?'s':''} drifting
     </div>
     <svg viewBox="0 0 ${w} ${h}" width="100%" style="max-width:480px;display:block;">
       ${rects}
     </svg>`;
+
+  // Update cover story text
+  const storyEl = document.getElementById('cover-story');
+  if(storyEl){
+    if(CURRENT_MODE === 'highschool'){
+      const careerScore = Math.round(scores.career.score);
+      const wellScore = Math.round(scores.wellbeing.score);
+      storyEl.innerHTML = `<strong>Meet Alex S., Grade 11.</strong> Good grades — but Future Readiness is at ${careerScore}/100. No work experience, nothing on their résumé, and they've never researched a career path. Wellbeing is at ${wellScore}/100 — sleep at 5.5 hrs, stress at 8/10. <span style="color:var(--accent);font-weight:600;">College applications open in 4 months.</span>`;
+    } else {
+      const careerScore = Math.round(scores.career.score);
+      storyEl.innerHTML = `<strong>Meet Muflih, Year 1 ME Student, UDST.</strong> Strong academics and 4 active projects — but Career Readiness is at ${careerScore}/100. No internship, CV last updated 8 months ago, no networking. <span style="color:var(--accent);font-weight:600;">QSTP internship window opens in 6 weeks.</span>`;
+    }
+  }
+
 }
 
 
